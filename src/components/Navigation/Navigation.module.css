@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background-color: aliceblue;
+  border-radius: 3px;
+}
+
+.link {
+  color: black;
+  text-decoration: solid;
+}
+
+.link:hover {
+  color: rgb(122, 5, 5);
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(158, 14, 93);
+}
