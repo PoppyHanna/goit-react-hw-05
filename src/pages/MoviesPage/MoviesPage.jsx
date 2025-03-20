@@ -1,3 +1,5 @@
+import SearchBar from "../../components/SearchBar/SearchBar";
+
 export default function MoviesPage() {
-  return <div>Movie pages</div>;
+  return <SearchBar />;
 }

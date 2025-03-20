@@ -1,7 +1,12 @@
 // import { useState, useEffect } from "react";
 import Navigation from "./components/Navigation/Navigation";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import HomePage from "./pages/HomePage/HomePage";
+// import MoviesPage from "./pages/MoviesPage/MoviesPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+import MovieCast from "./components/MovieCast/MovieCast";
+import MovieReviews from "./components/MovieReviews/MovieReviews";
+// import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -10,15 +15,12 @@ function App() {
   return (
     <>
       <Navigation />
-
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <Routes>
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
+      </Routes>
     </>
   );
 }
