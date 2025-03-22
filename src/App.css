@@ -1,10 +1,14 @@
 #root {
-  max-width: 100%;
+  padding: 0;
+  text-align: center;
+  max-width: none;
+  color: black;
+  /* max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
   background-color: rgb(252, 230, 230);
-  color: black;
+  color: black; */
 }
 
 /* .logo {

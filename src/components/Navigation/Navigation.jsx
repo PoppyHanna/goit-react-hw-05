@@ -1,10 +1,5 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
-
-import HomePage from "../../pages/HomePage/HomePage";
-import MoviesPage from "../../pages/MoviesPage/MoviesPage";
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
-
 import css from "./Navigation.module.css";
 
 const buildLinkClass = ({ isActive }) => {
@@ -19,16 +14,9 @@ export default function Navigation() {
           Home
         </NavLink>
         <NavLink to="/movies" className={buildLinkClass}>
-          Movie
+          Movies
         </NavLink>
       </nav>
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-
-        <Route path="/" element={<NotFoundPage />} />
-      </Routes>
     </div>
   );
 }

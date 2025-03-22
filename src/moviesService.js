@@ -37,6 +37,16 @@ export const getMovieCredits = async (movieId) => {
 };
 
 export const getMovieReviews = async (movieId) => {
-  const response = await axiosInstance.get(`/movie/${movieId}/reviews`);
-  return response.data.results;
+  try {
+    const response = await axiosInstance.get(`/movie/${movieId}/reviews`);
+   
+    if (response.data && response.data.results) {
+      return response.data.results;
+    }
+    return []; 
+  } catch (error) {
+    console.error("Помилка при завантаженні відгуків:", error);
+    return []; 
+  }
 };
+
