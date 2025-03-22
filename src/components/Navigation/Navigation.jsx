@@ -8,7 +8,7 @@ const buildLinkClass = ({ isActive }) => {
 
 export default function Navigation() {
   return (
-    <div>
+    <div className={css.container}>
       <nav className={css.nav}>
         <NavLink to="/" className={buildLinkClass}>
           Home

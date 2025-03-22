@@ -4,7 +4,7 @@ import { getMovieDetails } from "../../moviesService";
 import css from "./MovieDetailsPage.module.css";
 
 const defaultImg =
-  "<https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg>";
+  "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -19,18 +19,18 @@ export default function MovieDetailsPage() {
         const data = await getMovieDetails(movieId);
         setMovieData(data);
       } catch (error) {
-        console.error("Помилка при завантаженні деталей фільму", error);
+        console.error("Error loading movie detailes!!!", error);
       }
     };
     fetchMovieDetails();
   }, [movieId]);
 
-  if (!movieData) return <p>Завантаження...</p>;
+  if (!movieData) return <p>Loading...</p>;
 
   return (
     <div className={css.btn}>
-      <Link to={backBtn.current} className={css.link}>
-        Go back
+      <Link to={backBtn.current} className={css.linkBtn}>
+        ⬅ Go back
       </Link>
 
       <h2 className={css.title}>{movieData.title}</h2>
@@ -43,7 +43,7 @@ export default function MovieDetailsPage() {
         width={250}
         alt="poster"
       />
-      <p className="text-white">{movieData.overview}</p>
+      <p className={css.textWhite}>{movieData.overview}</p>
 
       <div className={css.nav}>
         <Link to="cast" className={css.link}>

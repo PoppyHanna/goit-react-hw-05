@@ -17,7 +17,7 @@ export default function MovieReviews() {
           setReviews([]);
         } else setReviews(data);
       } catch (error) {
-        console.error("Помилка при завантаженні відгуків", error);
+        console.error("Error loading reviews!!!", error);
       }
     };
 

@@ -17,7 +17,7 @@ export default function MoviesPage() {
         const data = await searchMovies(query);
         setMovies(data);
       } catch (error) {
-        console.error("Помилка при завантаженні фільмів", error);
+        console.error("Error loading movies!!!", error);
       }
     };
     fetchMovies();

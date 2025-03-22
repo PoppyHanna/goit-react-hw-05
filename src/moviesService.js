@@ -1,9 +1,6 @@
 import axios from "axios";
 
 
-
-
-
 const API_URL = "https://api.themoviedb.org/3";
 const API_TOKEN = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MjkzMjliMzVmZTc4NjI4NDUzOWEyODE4NGJlOTc5MCIsIm5iZiI6MTc0MjM0MjMwOC4wNzYsInN1YiI6IjY3ZGEwOGE0NmQ1NmE5OTFhN2E2YmRmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ohQfE1IzUnzKhhaI4axDBIOBF9fts_r0uvKgXhOEGMQ"; 
 
@@ -45,7 +42,7 @@ export const getMovieReviews = async (movieId) => {
     }
     return []; 
   } catch (error) {
-    console.error("Помилка при завантаженні відгуків:", error);
+    console.error("Error loading reviews!!!", error);
     return []; 
   }
 };

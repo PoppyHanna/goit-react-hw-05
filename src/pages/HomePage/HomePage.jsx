@@ -12,7 +12,7 @@ export default function HomePage() {
         const data = await getTrendingMovies();
         setMovies(data);
       } catch (error) {
-        console.error("Помилка при завантаженні фільмів!", error);
+        console.error("Error loading movies!!!", error);
       }
     };
     fetchMovies();
@@ -20,7 +20,7 @@ export default function HomePage() {
 
   return (
     <div className={css.container}>
-      <h2 className={css.title}>Трендові фільми!!!</h2>
+      <h2 className={css.title}>Trending movies!!!</h2>
       <MovieList movies={movies} />;
     </div>
   );
