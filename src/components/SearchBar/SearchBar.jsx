@@ -4,13 +4,14 @@ import css from "./SearchBar.module.css";
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim() === "") {
       toast.error("Please enter text to search movies!");
       return;
     }
-    onSubmit(query);
+    onSubmit(query.trim());
   };
 
   return (
