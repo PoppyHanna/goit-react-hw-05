@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Link,
   Outlet,
@@ -16,8 +16,7 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-
-  const backLink = location.state?.from || "/movies";
+  const backBtn = useRef(location.state?.from ?? "/movies");
 
   const [movieData, setMovieData] = useState(null);
 
@@ -37,7 +36,7 @@ export default function MovieDetailsPage() {
 
   return (
     <div className={css.btn}>
-      <button onClick={() => navigate(backLink)} className={css.linkBtn}>
+      <button onClick={() => navigate(backBtn.current)} className={css.linkBtn}>
         ⬅ Go back
       </button>
 
