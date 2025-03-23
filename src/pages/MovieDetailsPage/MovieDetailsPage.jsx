@@ -1,5 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 import { getMovieDetails } from "../../moviesService";
 import css from "./MovieDetailsPage.module.css";
 
@@ -9,7 +15,9 @@ const defaultImg =
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const location = useLocation();
-  const backBtn = useRef(location.state?.from ?? "/movies");
+  const navigate = useNavigate();
+
+  const backLink = location.state?.from || "/movies";
 
   const [movieData, setMovieData] = useState(null);
 
@@ -19,7 +27,7 @@ export default function MovieDetailsPage() {
         const data = await getMovieDetails(movieId);
         setMovieData(data);
       } catch (error) {
-        console.error("Error loading movie detailes!!!", error);
+        console.error("Error loading movie details!!!", error);
       }
     };
     fetchMovieDetails();
@@ -29,9 +37,9 @@ export default function MovieDetailsPage() {
 
   return (
     <div className={css.btn}>
-      <Link to={backBtn.current} className={css.linkBtn}>
+      <button onClick={() => navigate(backLink)} className={css.linkBtn}>
         ⬅ Go back
-      </Link>
+      </button>
 
       <h2 className={css.title}>{movieData.title}</h2>
       <img
